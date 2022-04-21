@@ -26,6 +26,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        $article = new Article();
+        $data = ['article' => $article];
+        return view('articles.create', $data);
+    }
 
     /**
      * Store a newly created resource in storage.
