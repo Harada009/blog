@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/articles', ArticleController::class);
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::resource('/articles', ArticleController::class);
+});
 
 // Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 
