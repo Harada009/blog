@@ -53,6 +53,6 @@ class User extends Authenticatable
 
     public function is_bookmark($articleId)
     {
-        return $this->bookmark_articles()->get()->contains($articleId);    
+        return $this->bookmark_articles->contains($articleId);
     }
 }
