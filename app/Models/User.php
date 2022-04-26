@@ -53,6 +53,6 @@ class User extends Authenticatable
 
     public function is_bookmark($userId)
     {
-        
+        return true;    // 仮実装
     }
 }
